@@ -69,24 +69,22 @@ hist(x,xlab="shot distance",ylab="frequency",col = "yellow")
 ```{r}
 library(gganimate)
 library(ggplot2)
-library(gapminder)
 library(ggthemes)
 library(dplyr)
 
 
+
+# for stephen curry
+subdata <- subset(PbP, player=="Stephen Curry")
+subdata$xx <- subdata$original_x/10
+subdata$yy <- subdata$original_y/10-41.75
+
+
 # plotting home and away scores of player stephen curry
 subdata1 <- subset(PbP, player=="Stephen Curry")
-#ggplot(data=subdata1,mapping=aes(x=home_score,y=away_score,col="blue"))+
- # geom_point(size=1)
-gapminder
 
-graph1 = gapminder %>%
-  ggplot(aes(x=gdpPercap,y=lifeExp,color=continent,size=pop))+ 
-  geom_point()
+ggplot(data=subdata1,mapping=aes(x=home_score,y=away_score,col="blue"))+geom_point(size=1)
 
-graph1.animation = graph1 + transition_time(year)
-
-graph1
 
 
 
